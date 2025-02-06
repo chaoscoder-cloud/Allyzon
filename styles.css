@@ -1,13 +1,26 @@
+/* General Styling */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to bottom, #ff758c, #ff7eb3);
-    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ff6b81, #ff9a9e);
+    font-family: 'Great Vibes', cursive;
     margin: 0;
     text-align: center;
     color: white;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Falling Hearts Background */
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
     overflow: hidden;
 }
 
@@ -18,6 +31,7 @@ body {
     height: 200px;
     perspective: 800px;
     cursor: pointer;
+    transition: transform 1s ease-in-out;
 }
 
 .box {
@@ -26,20 +40,28 @@ body {
     background-color: red;
     position: absolute;
     border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
     transition: transform 1s ease-in-out;
 }
 
+/* Lid Animation */
 .lid {
     width: 100%;
-    height: 50px;
+    height: 50%;
     position: absolute;
     top: 0;
     left: 0;
-    background-color: red;
     border-radius: 15px 15px 0 0;
-    transition: transform 1s ease-in-out;
+    background: darkred;
+    transform-origin: top;
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
+.container.open .lid {
+    transform: rotateX(120deg);
+}
+
+/* Ribbon */
 .ribbon {
     position: absolute;
     top: 50%;
@@ -51,6 +73,38 @@ body {
     border-radius: 6px;
 }
 
+/* Message and Buttons */
+.message {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.buttons {
+    display: block;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ff758c;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #ff7eb3;
+    transform: scale(1.1);
+}
+
 /* Love Letter */
 .love-letter {
     display: none;
@@ -59,29 +113,58 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
-    background-color: #d0e1ff;
+    background-color: blue;
     padding: 20px;
     border-radius: 10px;
     color: white;
     transition: transform 1s ease-in-out;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Floating Hearts */
+@keyframes floatHearts {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-100vh);
+    }
+}
+
+.heart {
+    position: absolute;
+    bottom: -10%;
+    font-size: 20px;
+    color: pink;
+    opacity: 0.8;
+    animation: floatHearts 6s linear infinite;
 }
 
 /* Love Message */
 #love-message {
     opacity: 0;
-    font-size: 24px;
+    font-size: 26px;
     font-family: 'Great Vibes', cursive;
-    color: #333;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+    color: #fff;
     position: absolute;
-    top: 50%;
+    top: 20%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     display: none;
     transition: opacity 1s ease-in-out;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Slide Out and In Front */
+@keyframes slideOutIn {
+    0% {
+        transform: translateY(0) translateX(0);
+    }
+    100% {
+        transform: translateY(-100px) translateX(200px);
+    }
+}
+
+.buttons.slide {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideOutIn 1s ease-in-out;
 }
