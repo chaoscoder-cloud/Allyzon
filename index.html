@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- Falling Hearts -->
+    <!-- Floating Hearts Background -->
     <div class="hearts-container"></div>
 
     <!-- Valentine Box -->
@@ -18,7 +18,7 @@
             <div class="ribbon"></div>
         </div>
         <div class="message">
-            Will you be my Valentine? ❤️
+            <p>Will you be my Valentine? ❤️</p>
             <div class="buttons">
                 <button onclick="yes(event)">Yes! 💞</button>
                 <button onclick="no(event)">No 😳</button>
@@ -27,12 +27,12 @@
     </div>
 
     <!-- Love Letter -->
-    <div class="love-letter" id="love-letter" onclick="flyAwayLetter()">
+    <div class="love-letter" id="love-letter" onclick="openLetter()">
         <div class="letter-envelope"></div>
-        <div class="love-text">Click here to open your love letter 💌</div>
+        <div class="love-text">Click to open your love letter 💌</div>
     </div>
 
-    <!-- Love Message -->
+    <!-- Love Message (after the letter is opened) -->
     <div class="love-message" id="love-message"></div>
 
     <script src="script.js"></script>
