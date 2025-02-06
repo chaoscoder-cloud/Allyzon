@@ -23,7 +23,7 @@ function yes(event) {
 
 function no(event) {
     event.stopPropagation();
-    alert("No worries! Love is in the air! 💕");
+    alert("ANONG NO? BAHALA KA JAN MAG YE-YES KA👺");
 }
 
 function openLetter() {
