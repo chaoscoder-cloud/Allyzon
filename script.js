@@ -1,3 +1,4 @@
+/* General Page Styles */
 body {
     display: flex;
     justify-content: center;
@@ -10,6 +11,7 @@ body {
     color: white;
     overflow: hidden;
 }
+
 /* Falling Hearts Animation */
 @keyframes fall {
     0% { transform: translateY(-100vh); }
@@ -23,13 +25,15 @@ body {
 }
 .heart {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     background: red;
     clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 75%, 20% 100%, 0% 35%);
-    opacity: 0.8;
-    animation: fall 5s linear infinite;
+    opacity: 0.7;
+    animation: fall 6s linear infinite;
 }
+
+/* Box */
 .container {
     position: relative;
     width: 200px;
@@ -54,6 +58,8 @@ body {
     background-color: red;
     border-radius: 15px;
 }
+
+/* Question & Buttons */
 .message-container {
     display: none;
     position: absolute;
@@ -65,6 +71,8 @@ body {
     border-radius: 10px;
     color: black;
 }
+
+/* Love Letter */
 .love-letter {
     display: none;
     position: absolute;
@@ -77,6 +85,8 @@ body {
     color: white;
     cursor: pointer;
 }
+
+/* Love Message */
 .love-message {
     display: none;
     position: absolute;
