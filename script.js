@@ -4,14 +4,14 @@ function openLid() {
     lid.classList.add('open');
 
     setTimeout(() => {
-        document.querySelector('.message').style.opacity = '1';
-        document.querySelector('.message').style.transform = 'translate(-50%, -150px)';
+        document.getElementById('message').style.opacity = '1';
+        document.getElementById('message').style.transform = 'translate(-50%, -150px)';
     }, 500);
 }
 
 // Clicking "No" shows an alert
 function no(event) {
-    event.stopPropagation(); // Prevent click event from propagating
+    event.stopPropagation();
     alert("ANONG NO? BAHALA KA DYAN MAG YE-YES KA👺");
 }
 
@@ -20,10 +20,10 @@ function yes(event) {
     event.stopPropagation();
 
     document.querySelector('.container').style.display = 'none';
-    document.querySelector('.message').style.display = 'none';
+    document.getElementById('message').style.display = 'none';
 
     setTimeout(() => {
-        document.querySelector('.love-letter').style.display = 'block';
+        document.getElementById('love-letter').style.display = 'block';
     }, 500);
 }
 
@@ -55,15 +55,21 @@ function showLoveMessage() {
 // Generate limited falling hearts
 function createHearts() {
     const container = document.querySelector('.hearts-container');
-
+    
     setInterval(() => {
-        if (container.getElementsByClassName('heart').length < 10) {
+        const hearts = container.getElementsByClassName('heart');
+        
+        if (hearts.length < 10) { // Limit to 10 hearts at a time
             const heart = document.createElement('div');
             heart.className = 'heart';
             heart.style.left = `${Math.random() * 100}vw`;
+            heart.style.animationDuration = `${3 + Math.random() * 2}s`;
             container.appendChild(heart);
-
-            setTimeout(() => heart.remove(), 4000);
+            
+            setTimeout(() => {
+                heart.style.opacity = '0'; // Fade out before removing
+                setTimeout(() => heart.remove(), 1000);
+            }, 4000);
         }
     }, 700);
 }
