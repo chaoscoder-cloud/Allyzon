@@ -15,7 +15,7 @@ function no(event) {
     alert("ANONG NO? BAHALA KA DYAN MAG YE-YES KA👺");
 }
 
-// Clicking "Yes" hides the box & shows the love letter
+// Clicking "Yes" makes the letter slide out of the box
 function yes(event) {
     event.stopPropagation();
 
@@ -23,7 +23,9 @@ function yes(event) {
     document.getElementById('message').style.display = 'none';
 
     setTimeout(() => {
-        document.getElementById('love-letter').style.display = 'block';
+        let loveLetter = document.getElementById('love-letter');
+        loveLetter.style.display = 'block';
+        setTimeout(() => loveLetter.classList.add('letter-slide'), 100);
     }, 500);
 }
 
@@ -51,27 +53,3 @@ function showLoveMessage() {
     document.getElementById('love-message').style.display = 'block';
     document.getElementById('love-message').style.opacity = '1';
 }
-
-// Generate limited falling hearts
-function createHearts() {
-    const container = document.querySelector('.hearts-container');
-    
-    setInterval(() => {
-        const hearts = container.getElementsByClassName('heart');
-        
-        if (hearts.length < 10) { // Limit to 10 hearts at a time
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.style.left = `${Math.random() * 100}vw`;
-            heart.style.animationDuration = `${3 + Math.random() * 2}s`;
-            container.appendChild(heart);
-            
-            setTimeout(() => {
-                heart.style.opacity = '0'; // Fade out before removing
-                setTimeout(() => heart.remove(), 1000);
-            }, 4000);
-        }
-    }, 700);
-}
-
-createHearts();
