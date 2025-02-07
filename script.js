@@ -1,7 +1,11 @@
 // Open the lid and show the question
-function openBox() {
-    document.querySelector('.lid').style.transform = 'rotateX(120deg)';
-    
+function openLid() {
+    let lid = document.getElementById('lid');
+    lid.classList.add('open');
+
+    // Disable interaction with the box after lid is opened
+    document.getElementById('box-container').classList.add('disabled');
+
     setTimeout(() => {
         document.querySelector('.message').style.opacity = '1';
         document.querySelector('.message').style.transform = 'translate(-50%, -150px)';
@@ -17,8 +21,7 @@ function no(event) {
 // Clicking "Yes" hides the box & shows the love letter
 function yes(event) {
     event.stopPropagation();
-    
-    // Hide the box after clicking "Yes"
+
     document.querySelector('.container').style.display = 'none';
     document.querySelector('.message').style.display = 'none';
 
@@ -41,11 +44,11 @@ function openLetter() {
 // Show the love message
 function showLoveMessage() {
     document.getElementById('love-message').innerHTML = `
-        <p><b>To My Love,</b></p>
+        <p><b>To Ally,</b></p>
         <p>You are the melody in my heart, the warmth in my soul, and the dream I never want to wake from.</p>
         <p>With every heartbeat, my love for you grows stronger, and I promise to cherish you always.</p>
         <p>Forever yours,</p>
-        <b>Your Valentine ❤️</b>
+        <b>From Kian ❤️</b>
     `;
 
     document.getElementById('love-message').style.display = 'block';
@@ -55,21 +58,15 @@ function showLoveMessage() {
 // Generate limited falling hearts
 function createHearts() {
     const container = document.querySelector('.hearts-container');
-    
+
     setInterval(() => {
-        const hearts = container.getElementsByClassName('heart');
-        
-        if (hearts.length < 10) { // Limit to 10 hearts at a time
+        if (container.getElementsByClassName('heart').length < 10) {
             const heart = document.createElement('div');
             heart.className = 'heart';
             heart.style.left = `${Math.random() * 100}vw`;
-            heart.style.animationDuration = `${3 + Math.random() * 2}s`;
             container.appendChild(heart);
-            
-            setTimeout(() => {
-                heart.style.opacity = '0'; // Fade out before removing
-                setTimeout(() => heart.remove(), 1000); // Remove heart after fading
-            }, 3000);
+
+            setTimeout(() => heart.remove(), 4000);
         }
     }, 700);
 }
