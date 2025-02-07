@@ -1,98 +1,50 @@
-/* General Page Styles */
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(to bottom, #ff758c, #ff7eb3);
-    font-family: Arial, sans-serif;
-    margin: 0;
-    text-align: center;
-    color: white;
-    overflow: hidden;
+document.addEventListener("DOMContentLoaded", () => {
+    createFallingHearts();
+});
+
+function openBox() {
+    document.querySelector('.lid').classList.add('open-lid');
+    setTimeout(() => { document.getElementById('message-container').style.display = 'block'; }, 500);
 }
 
-/* Falling Hearts Animation */
-@keyframes fall {
-    0% { transform: translateY(-100vh); }
-    100% { transform: translateY(100vh); }
-}
-.hearts-container {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-.heart {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background: red;
-    clip-path: polygon(50% 0%, 100% 35%, 80% 100%, 50% 75%, 20% 100%, 0% 35%);
-    opacity: 0.7;
-    animation: fall 6s linear infinite;
+function no(event) {
+    event.stopPropagation();
+    alert('ANONG NO? BAHALA KA DYAN MAG YE-YES KA👺');
 }
 
-/* Box */
-.container {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    perspective: 800px;
-}
-.lid {
-    width: 100%;
-    height: 50px;
-    background-color: red;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform-origin: top;
-    transition: transform 1s ease-in-out;
-    cursor: pointer;
-}
-.open-lid { transform: rotateX(-120deg); }
-.box {
-    width: 100%;
-    height: 100%;
-    background-color: red;
-    border-radius: 15px;
+function yes(event) {
+    event.stopPropagation();
+    document.querySelector('.container').style.display = 'none';
+    document.getElementById('message-container').style.display = 'none';
+    setTimeout(() => { document.getElementById('love-letter').style.display = 'block'; }, 500);
 }
 
-/* Question & Buttons */
-.message-container {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 10px;
-    border-radius: 10px;
-    color: black;
+function flyAwayLetter() {
+    const loveLetter = document.getElementById('love-letter');
+    loveLetter.style.transform = 'translate(-50%, -200vh) rotate(30deg)';
+    loveLetter.style.opacity = '0';
+    setTimeout(() => {
+        loveLetter.style.display = 'none';
+        showLoveMessage();
+    }, 1000);
 }
 
-/* Love Letter */
-.love-letter {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: blue;
-    padding: 10px;
-    border-radius: 10px;
-    color: white;
-    cursor: pointer;
+function showLoveMessage() {
+    document.getElementById('love-message').innerHTML = `<p><b>To Ally,</b></p>
+    <p>You are the melody in my heart, the warmth in my soul.</p>
+    <p>Forever yours,</p> <b>Kian ❤️</b>`;
+    document.getElementById('love-message').style.display = 'block';
 }
 
-/* Love Message */
-.love-message {
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    color: black;
+function createFallingHearts() {
+    const container = document.querySelector('.hearts-container');
+    for (let i = 0; i < 10; i++) {  // Limited the hearts to 10
+        let heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+        container.appendChild(heart);
+        setTimeout(() => { heart.remove(); }, 6000);
+    }
+    setInterval(createFallingHearts, 3000); // Slowed down new heart creation
 }
