@@ -34,7 +34,7 @@ body {
     animation: fall linear infinite;
 }
 
-/* Make the heart shape */
+/* Heart Shape Fix */
 .heart::before,
 .heart::after {
     content: "";
@@ -79,14 +79,14 @@ body {
     background-color: red;
     position: absolute;
     border-radius: 15px;
-    pointer-events: none; /* Box is unclickable */
+    pointer-events: none; /* Unclickable */
 }
 
 /* Lid */
 .lid {
     width: 100%;
     height: 50px;
-    background-color: red;
+    background-color: darkred; /* Different color */
     position: absolute;
     top: 0;
     left: 0;
