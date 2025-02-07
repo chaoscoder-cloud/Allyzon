@@ -26,9 +26,32 @@ body {
     width: 20px;
     height: 20px;
     background-color: red;
-    border-radius: 50%;
-    opacity: 1;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(-45deg);
     animation: fall linear infinite;
+}
+
+/* Make the heart shape */
+.heart::before,
+.heart::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 10px;
 }
 
 @keyframes fall {
@@ -46,9 +69,9 @@ body {
     width: 200px;
     height: 200px;
     perspective: 800px;
-    display: block;
 }
 
+/* The box itself */
 .box {
     width: 100%;
     height: 100%;
@@ -57,8 +80,10 @@ body {
     border-radius: 15px;
     top: 0;
     left: 0;
+    pointer-events: none; /* Makes the box unclickable */
 }
 
+/* Lid */
 .lid {
     width: 100%;
     height: 50px;
@@ -69,21 +94,15 @@ body {
     border-radius: 15px 15px 0 0;
     transition: transform 1s ease-in-out;
     cursor: pointer;
-    z-index: 10; /* Ensure it's above the box */
+    z-index: 10;
 }
 
-.ribbon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 110%;
-    height: 12px;
-    background-color: white;
-    border-radius: 6px;
+/* Lid opens */
+.lid.open {
+    transform: rotateX(120deg);
 }
 
-/* Question & Buttons */
+/* Message & Buttons */
 .message {
     position: absolute;
     top: 100%;
@@ -97,6 +116,7 @@ body {
     transition: transform 1s ease-in-out, opacity 1s ease-in-out;
 }
 
+/* Buttons */
 .buttons {
     display: flex;
     justify-content: center;
