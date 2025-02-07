@@ -18,6 +18,7 @@ function no(event) {
 function yes(event) {
     event.stopPropagation();
     
+    // Hide the box after clicking "Yes"
     document.querySelector('.container').style.display = 'none';
     document.querySelector('.message').style.display = 'none';
 
