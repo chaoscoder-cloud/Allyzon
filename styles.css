@@ -12,7 +12,7 @@ body {
     overflow: hidden;
 }
 
-/* Falling Hearts Animation */
+/* Falling Hearts */
 @keyframes fall {
     0% { transform: translateY(-100vh); }
     100% { transform: translateY(100vh); }
