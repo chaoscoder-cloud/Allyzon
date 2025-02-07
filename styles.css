@@ -46,6 +46,7 @@ body {
     width: 200px;
     height: 200px;
     perspective: 800px;
+    display: block; /* Ensure the container is displayed initially */
 }
 
 .box {
