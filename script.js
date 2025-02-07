@@ -2,8 +2,7 @@ function openBox() {
     document.querySelector('.lid').style.transform = 'rotateX(120deg)';
 
     setTimeout(() => {
-        document.querySelector('.message').style.opacity = '1';
-        document.querySelector('.buttons').style.display = 'block';
+        document.querySelector('.message-container').style.display = 'block';
     }, 500);
 }
 
@@ -15,7 +14,7 @@ function no(event) {
 function yes(event) {
     event.stopPropagation();
     document.querySelector('.container').style.display = 'none';
-    document.querySelector('.message').style.display = 'none';
+    document.querySelector('.message-container').style.display = 'none';
 
     setTimeout(() => {
         document.querySelector('.love-letter').style.display = 'block';
