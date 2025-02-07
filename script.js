@@ -67,8 +67,8 @@ function createHearts() {
             
             setTimeout(() => {
                 heart.style.opacity = '0'; // Fade out before removing
-                setTimeout(() => heart.remove(), 1000);
-            }, 4000);
+                setTimeout(() => heart.remove(), 1000); // Remove heart after fading
+            }, 3000);
         }
     }, 700);
 }
