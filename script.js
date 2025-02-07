@@ -10,7 +10,7 @@ function openBox() {
 
 // Clicking "No" shows an alert
 function no(event) {
-    event.stopPropagation();
+    event.stopPropagation(); // Prevent click event from propagating
     alert("ANONG NO? BAHALA KA DYAN MAG YE-YES KA👺");
 }
 
