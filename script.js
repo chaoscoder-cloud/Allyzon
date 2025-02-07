@@ -1,8 +1,8 @@
 function openBox() {
-    document.querySelector('.lid').style.transform = 'rotateX(120deg)';
-
+    document.querySelector('.lid').classList.add('open-lid');
+    
     setTimeout(() => {
-        document.querySelector('.message-container').style.display = 'block';
+        document.getElementById('message-container').style.display = 'block';
     }, 500);
 }
 
@@ -13,22 +13,28 @@ function no(event) {
 
 function yes(event) {
     event.stopPropagation();
-    document.querySelector('.container').style.display = 'none';
-    document.querySelector('.message-container').style.display = 'none';
 
+    // Hide the box and message
+    document.querySelector('.container').style.display = 'none';
+    document.getElementById('message-container').style.display = 'none';
+
+    // Show the love letter
     setTimeout(() => {
-        document.querySelector('.love-letter').style.display = 'block';
+        document.getElementById('love-letter').style.display = 'block';
     }, 500);
 }
 
 function flyAwayLetter() {
     const loveLetter = document.getElementById('love-letter');
-    loveLetter.classList.add('fly-away');
+
+    // Make letter fly away
+    loveLetter.style.transform = "translate(-50%, -200vh) rotate(30deg)";
+    loveLetter.style.opacity = "0";
 
     setTimeout(() => {
         loveLetter.style.display = 'none';
         showLoveMessage();
-    }, 1500);
+    }, 1000);
 }
 
 function showLoveMessage() {
@@ -41,5 +47,4 @@ function showLoveMessage() {
     `;
 
     document.getElementById('love-message').style.display = 'block';
-    document.getElementById('love-message').style.opacity = '1';
 }
