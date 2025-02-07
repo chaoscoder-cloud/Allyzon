@@ -3,9 +3,6 @@ function openLid() {
     let lid = document.getElementById('lid');
     lid.classList.add('open');
 
-    // Disable interaction with the box after lid is opened
-    document.getElementById('box-container').classList.add('disabled');
-
     setTimeout(() => {
         document.querySelector('.message').style.opacity = '1';
         document.querySelector('.message').style.transform = 'translate(-50%, -150px)';
@@ -44,11 +41,11 @@ function openLetter() {
 // Show the love message
 function showLoveMessage() {
     document.getElementById('love-message').innerHTML = `
-        <p><b>To Ally,</b></p>
+        <p><b>To My Love,</b></p>
         <p>You are the melody in my heart, the warmth in my soul, and the dream I never want to wake from.</p>
         <p>With every heartbeat, my love for you grows stronger, and I promise to cherish you always.</p>
         <p>Forever yours,</p>
-        <b>From Kian ❤️</b>
+        <b>Your Valentine ❤️</b>
     `;
 
     document.getElementById('love-message').style.display = 'block';
