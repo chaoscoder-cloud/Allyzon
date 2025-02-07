@@ -13,14 +13,16 @@
 
     <!-- Valentine Box -->
     <div class="container">
-        <div class="box"></div> <!-- Unclickable Box -->
-        <div class="lid" id="lid" onclick="openLid()"></div> <!-- Clickable Lid -->
-        <div class="message">
-            <p>Will you be my Valentine? ❤️</p>
-            <div class="buttons">
-                <button class="yes-btn" onclick="yes(event)">Yes! 💞</button>
-                <button class="no-btn" onclick="no(event)">No 😳</button>
-            </div>
+        <div class="box"></div> <!-- Unclickable box -->
+        <div class="lid" id="lid" onclick="openLid()"></div> <!-- Clickable lid -->
+    </div>
+
+    <!-- Message and buttons -->
+    <div class="message" id="message">
+        <p>Will you be my Valentine? ❤️</p>
+        <div class="buttons">
+            <button onclick="yes(event)">Yes! 💞</button>
+            <button onclick="no(event)">No 😳</button>
         </div>
     </div>
 
