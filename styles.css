@@ -135,22 +135,15 @@ button {
 .love-letter {
     display: none;
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, 50px); /* Start inside the box */
+    transform: translate(-50%, -50%);
     background: blue;
     color: white;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
-    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
-    opacity: 0;
-}
-
-/* Love Letter slides out */
-.letter-slide {
-    transform: translate(-50%, -100px); /* Moves upward out of the box */
-    opacity: 1;
+    animation: glow 2s infinite alternate;
 }
 
 /* Flying Letter */
