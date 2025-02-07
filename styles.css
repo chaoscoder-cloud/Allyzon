@@ -20,6 +20,7 @@ body {
     pointer-events: none;
 }
 
+/* Heart Shape */
 .heart {
     position: fixed;
     top: 0;
@@ -78,9 +79,7 @@ body {
     background-color: red;
     position: absolute;
     border-radius: 15px;
-    top: 0;
-    left: 0;
-    pointer-events: none; /* Makes the box unclickable */
+    pointer-events: none; /* Box is unclickable */
 }
 
 /* Lid */
