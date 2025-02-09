@@ -41,11 +41,11 @@ function openLetter() {
 // Show the love message
 function showLoveMessage() {
     document.getElementById('love-message').innerHTML = `
-        <p><b>To My Love,</b></p>
-        <p>You are the melody in my heart, the warmth in my soul, and the dream I never want to wake from.</p>
-        <p>With every heartbeat, my love for you grows stronger, and I promise to cherish you always.</p>
-        <p>Forever yours,</p>
-        <b>Your Valentine ❤️</b>
+        <p><b>To Allyzon</b></p>
+        <p>Happy Valentines day pag nakita mo toh edi nag yes ka well wala ka din naman magagawa HAHHAHA</p>
+        <p>pero thank you nalang sa pag accept</p>
+        <p>Un lang sana nagustuhan mo tong anek anek na toh at lumabas ka pla sa kwarto mo may surprise dun HAHHAHA</p>
+        <b>From Kian</b>
     `;
 
     document.getElementById('love-message').style.display = 'block';
