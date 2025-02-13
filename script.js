@@ -44,7 +44,7 @@ function showLoveMessage() {
         <p><b>To Allyzon</b></p>
         <p>Happy Valentines day pag nakita mo toh edi nag yes ka well wala ka din naman magagawa HAHHAHA</p>
         <p>pero thank you nalang sa pag accept</p>
-        <p>Un lang sana nagustuhan mo tong anek anek na toh at lumabas ka pla sa kwarto mo may surprise dun HAHHAHA</p>
+        <p>Un lang sana nagustuhan mo tong anek anek na toh at may surprise ako sayo HAHHAHA</p>
         <b>From Kian</b>
     `;
 
